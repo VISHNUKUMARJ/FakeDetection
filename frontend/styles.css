@@ -1,0 +1,328 @@
+:root {
+  --primary: #4361ee;
+  --secondary: #3f37c9;
+  --accent: #4895ef;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --success: #4cc9f0;
+  --danger: #f72585;
+  --warning: #f8961e;
+  --info: #560bad;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
+  line-height: 1.6;
+  background-color: #f0f2f5;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(72, 149, 239, 0.1) 0%, transparent 20%),
+    linear-gradient(135deg, transparent 0%, rgba(76, 201, 240, 0.05) 50%, transparent 100%);
+  background-size: 200% 200%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.section-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  color: var(--secondary);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.5rem;
+}
+
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input[type="file"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+button.primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+button.primary:hover {
+  background-color: var(--secondary);
+}
+
+button.secondary {
+  background-color: var(--light);
+  color: var(--dark);
+  border: 1px solid #ddd;
+}
+
+button.secondary:hover {
+  background-color: #e9ecef;
+}
+
+.result-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--light);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  min-height: 50px;
+  font-family: 'Courier New', monospace;
+  overflow-x: auto;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard h2 {
+  color: var(--info);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.dashboard h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid var(--primary);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card.wide {
+  grid-column: span 2;
+  border-top-color: var(--accent);
+}
+
+.stat {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  margin: 1rem 0;
+  font-family: 'Courier New', monospace;
+}
+
+.detection-rate .stat {
+  color: var(--danger);
+}
+
+.activity-log {
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  background: rgba(240, 242, 245, 0.5);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.activity-log p {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-log p span {
+  font-weight: 600;
+}
+
+.activity-log p .fake {
+  color: var(--danger);
+}
+
+.activity-log p .genuine {
+  color: var(--success);
+}
+/* --- Enhancements Start --- */
+
+body {
+  background: linear-gradient(135deg, #f0f2f5, #e9f0ff);
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 2.8rem;
+  text-shadow: 1px 1px 2px rgba(67, 97, 238, 0.2);
+}
+
+button.primary {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+}
+
+button.primary:hover {
+  background-color: var(--secondary);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(63, 55, 201, 0.3);
+}
+
+button,
+.section,
+.dashboard-card {
+  transition: all 0.3s ease;
+}
+
+.section:hover,
+.dashboard-card:hover {
+  transform: perspective(600px) rotateX(1deg) rotateY(1deg) translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Add a smooth fade-in animation to sections */
+.section,
+.dashboard-card {
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard h2 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Spinner Style */
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
