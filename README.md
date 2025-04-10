@@ -37,8 +37,8 @@ Hosting (optional): Render, Vercel, or local deployment
 ⚙️ Installation & Setup
 
 # 1. Clone the repository
-git clone https://github.com/yourname/fakefinder-ai.git
-cd fakefinder-ai
+git clone (https://github.com/YOURNAME/FakeDetectionSystem.git)
+cd FakeDetectionSystem
 
 # 2. Set up Python virtual environment
 conda create -n fake_detection_env python=3.9
